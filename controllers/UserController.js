@@ -36,6 +36,7 @@ class UserController {
                 if (bcrypt.compareSync(req.body.password, user.password) === true) {
                     let message = `Welcome ${user.name}`
                     req.session.user = user
+                    console.log(req.session.user)
                     res.redirect(`/?message=${message}`)
                 } else {
                     console.log(`masuk 2`)

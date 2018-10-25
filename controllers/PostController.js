@@ -1,11 +1,13 @@
 const models = require('../models/index')
 const Post = models.Post
+const Tag = models.Tag
+const PostTag = models.PostTag
 
 class PostController {
     static index(req, res) {
         Post.findAll()
             .then(posts => {
-                res.render('admin/admin', { posts })
+                res.render('users/index', { posts })
             })
             .catch(err => {
                 res.send(err)
@@ -33,7 +35,8 @@ class PostController {
 
     static store(req, res) {
         let newPost = req.body
-        newPost.UserId = res.session.user.id
+        let tags = req.body.tags.split(',')
+        // newPost.UserId = res.session.user.id
         Post.create(newPost)
             .then(data => {
                 let message = `succesfully add new Post!`
