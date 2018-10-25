@@ -6,8 +6,10 @@ module.exports = (sequelize, DataTypes) => {
     review: DataTypes.TEXT,
     UserId: DataTypes.INTEGER
   }, {});
-  Post.associate = function(models) {
+  Post.associate = function (models) {
     // associations can be defined here
+    Post.belongsTo(models.User)
+    Post.belongsToMany(models.Tag, { through: 'PostTag' })
   };
   return Post;
 };
