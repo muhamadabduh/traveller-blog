@@ -18,8 +18,12 @@
   },
   "homepage": "https://github.com/muhamadabduh/traveller-blog#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "express-flash-notification": "^0.5.0",
+    "express-session": "^1.15.6",
+    "faker": "^4.1.0",
     "pg": "^7.5.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.41.0"
