@@ -16,6 +16,7 @@ function generateFakePost(num) {
   }
   return posts
 }
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     /*
