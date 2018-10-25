@@ -1,38 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <%-include('head') %>
+
+<%-include('head')%>
+
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
+<body>
 
-        <header class="main-header">
-            <!-- Logo -->
-            <a href="/admin" class="logo">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>T</b>RV</span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Traveler</b>Admin</span>
-            </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <%-include('navbar')%>
-        </header>
-        <!-- Left side column. contains the logo and sidebar -->
-        <aside class="main-sidebar">
-            <!-- sidebar: style can be found in sidebar.less -->
-            <%-include('sidebar')%>
-            <!-- /.sidebar -->
-        </aside>
+    <div id="wrapper">
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content -wrapper">
-            <!-- Content Header (Page header) -->
+        <!-- Navigation -->
+        <%-include('navbar')%>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"><%=title%></h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- div class row -->
             <%if(content === 'create-post'){ %>
                 <%-include('../post/create') %>
-            <% } else if(content === 'edit-post') { %>
-                <p></p>
+            <% } else if(content === 'register') { %>
+                <%-include('../users/login') %>
             <% } else if(content === 'all-posts') { %>
                 <%-include('../post/index')%>
             <% } else if(content === 'edit-post') { %>
@@ -40,23 +33,13 @@
             <% } else if(content === 'edit-post') { %>
             <% } else if(content === 'edit-post') { %>
             <% } %>
-            <!-- Main content -->
-
-            <!-- /.content -->
         </div>
-        <!-- /.content-wrapper -->
-        <%-include('footer')%>
-        <!-- Control Sidebar -->
-        <%-include('control-sidebar') %>
-        <!-- /.control-sidebar -->
-        <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-        <div class="control-sidebar-bg"></div>
-    </div>
-    <!-- ./wrapper -->
-    <!-- Script -->
+        <!-- /#page-wrapper -->
 
-    <%-include('script') %>
+    </div>
+    <!-- /#wrapper -->
+
+<%-include('script')%>
 </body>
 
 </html>
