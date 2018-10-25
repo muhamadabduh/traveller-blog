@@ -7,16 +7,28 @@
                     <th>Title</th>
                     <th>Image</th>
                     <th>Review</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <%posts.forEach(post=>{ %>
-                    <tr>
-                        <td><%=post.id%></td>
-                        <td><%=post.title%></td>
-                        <td><%=post.image%></td>
-                        <td><%=post.review%></td>
-                    </tr>
+                <tr>
+                    <td>
+                        <%=post.id%>
+                    </td>
+                    <td>
+                        <%=post.title%>
+                    </td>
+                    <td>
+                        <%=post.image%>
+                    </td>
+                    <td>
+                        <%=post.review%>
+                    </td>
+                    <td>
+                        <button></button>
+                    </td>
+                </tr>
                 <% }) %>
             </tbody>
         </table>
