@@ -2,13 +2,20 @@ const models = require('../models/index')
 const Post = models.Post
 const Tag = models.Tag
 const PostTag = models.PostTag
+const getDate = require('../helpers/getDate')
 
 class PostController {
     static index(req, res) {
-        Post.findAll()
+        Post.findAll({
+            include: { model: models.User },
+            order: [['id', 'asc']]
+        })
             .then(posts => {
+                // res.send(req.session.user)
+                res.locals.getDate = getDate
                 // console.log(req.session.user, '===========')
-                res.render('users/index', { posts: posts, user: req.session.user })
+                const user = req.session.user || ''
+                res.render('users/index', { posts: posts, user: user })
             })
             .catch(err => {
                 res.send(err)
@@ -17,6 +24,7 @@ class PostController {
 
     // tambahkan informasi user untuk keperluan create post baru
     static create(req, res) {
+
         res.render('admin/admin', { content: 'create-post', title: 'New Post' })
     }
 
@@ -40,7 +48,7 @@ class PostController {
             title: req.body.title,
             image: req.body.image,
             review: req.body.review,
-            UserId: req.session.user.dataValues
+            // UserId: user.id
         })
             .then(data => {
                 let message = `succesfully add new Post!`
