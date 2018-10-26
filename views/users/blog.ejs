@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%-include('partials/head') %>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <%-include('partials/navbar') %>
+  <%-include('partials/header') %>
+      </div>
+      <div class="modal-footer">
+          <small>New to Refers ?<a href="#">Register here</a></small>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="mt-5"></div>
+<section class="aboutus py-5" id="aboutus">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="">
+                        <h4 class="pl-3 py-2">Categories</h4>
+                        <ul class="list-unstyled">
+                          <li><a href="listings-page.html" class="list-group-item"><i class="fa fa-angle-double-right"></i> Listings Page</a> </li>
+                          <li><a href="/posts/create" class="list-group-item"><i class="fa fa-angle-double-right"></i> Post a blog</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="card pb-5">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5>Free Responsive Mobile Website Templates (3147)</h5>
+                                <div class="pb-1"></div>
+                            </div>
+                        </div>
+                        <% posts.forEach(post => { %>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="/posts/<%= post.id %>">
+                                <div class="card text-center">
+                                    <img class="card-img-top" src="<%= post.image %>" alt=" ">
+                                    <div class="card-body">
+                                         <h5>Catchy</h5> 
+                                    </div>
+                                </div></a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="/posts/<%= post.id %>">
+                                <div class="card text-center">
+                                    <img class="card-img-top" src="<%= post.image %>" alt=" ">
+                                    <div class="card-body">
+                                         <h5>School</h5> 
+                                    </div>
+                                </div></a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="/posts/<%= post.id %>">
+                                <div class="card text-center">
+                                    <img class="card-img-top" src="<%= post.image %>" alt=" ">
+                                    <div class="card-body">
+                                         <h5>Catchy</h5> 
+                                    </div>
+                                </div></a>
+                            </div>
+                        </div>
+                        <% }) %>
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                 <ul class="pagination">
+                                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                </ul> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+</section>
+
+<section class="footer bg-light   py-5" id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>About Sarto</h5>
+                <p>Person usually begins a job by becoming an employee, volunteering, or starting a business. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusant doloremque laudantium, totam rem aperiam eaque ipsa quae.</p>
+            </div>
+            <div class="col-md-3">
+                <h5>About Sarto</h5>
+                <ul class="list-inline list-unstyled">
+                    <li><a href="#"> Administrator</a></li>
+                    <li><a href="#"> Account</a></li>
+                    <li><a href="#"> Finance</a></li>
+                    <li><a href="#"> Developer</a></li>
+                    <li><a href="#"> Project Manager</a></li>
+                    <li><a href="#"> Art Director</a></li>
+                    <li><a href="#"> Animator</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>About Sarto</h5>
+                <ul class="list-inline list-unstyled">
+                    <li><a href="#"> Administrator</a></li>
+                    <li><a href="#"> Account</a></li>
+                    <li><a href="#"> Finance</a></li>
+                    <li><a href="#"> Developer</a></li>
+                    <li><a href="#"> Project Manager</a></li>
+                    <li><a href="#"> Art Director</a></li>
+                    <li><a href="#"> Animator</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>About Sarto</h5>
+                <ul class="list-inline list-unstyled">
+                    <li><a href="#"> Administrator</a></li>
+                    <li><a href="#"> Account</a></li>
+                    <li><a href="#"> Finance</a></li>
+                    <li><a href="#"> Developer</a></li>
+                    <li><a href="#"> Project Manager</a></li>
+                    <li><a href="#"> Art Director</a></li>
+                    <li><a href="#"> Animator</a></li>
+                </ul>
+            </div>
+            
+        </div>
+
+    </div>
+</section>
+<section class="copyright border bg-dark text-white py-2" id="copyright">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <small>Sarto © 2018, All Rights Reserved, Design & Developed By: </small>
+            </div>
+        </div>
+    </div>
+</section>

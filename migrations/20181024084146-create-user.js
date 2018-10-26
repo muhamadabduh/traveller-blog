@@ -19,15 +19,15 @@ module.exports = {
       },
       role: {
         type: Sequelize.STRING,
-        default: 'traveller'
+        defaultValue: 'traveller'
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date()
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date()
       }
     });
   },
