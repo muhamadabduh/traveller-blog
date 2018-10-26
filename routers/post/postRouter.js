@@ -4,9 +4,29 @@ const postRouter = express.Router()
 const PostController = require('../../controllers/PostController')
 
 postRouter.get('/', PostController.index)
-postRouter.get('/create', PostController.create) //middleware
+postRouter.get('/create', (req, res, next) => {
+    if (req.session.user) {
+        next()
+    } else {
+        res.redirect(`/users/login`)
+    }
+}, PostController.create) //middleware
 postRouter.get('/:id', PostController.show)
-postRouter.post('/create', PostController.store)
-postRouter.post('/delete/:id', PostController.destroy)
+postRouter.post('/create', (req, res, next) => {
+    // console.log()
+    if (req.session.user) {
+        next()
+    } else {
+        res.redirect(`/users/login`)
+    }
+}, PostController.store)
+postRouter.post('/delete/:id', (req, res, next) => {
+    // console.log()
+    if (req.session.user) {
+        next()
+    } else {
+        res.redirect(`/users/login`)
+    }
+}, PostController.destroy)
 
 module.exports = postRouter

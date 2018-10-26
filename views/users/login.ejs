@@ -40,9 +40,11 @@
                     <h3 class="panel-title">Please Sign In</h3>
                 </div>
                 <div class="panel-body">
+                    <% if (message) { %>
                     <div class="alert alert-danger">
-                        {{message}} or <a href="/users/register" class="alert-link">Sign Up</a>.
+                        <%=message%> or <a href="/users/register" class="alert-link">Sign Up</a>.
                     </div>
+                    <%}%>
                     <form role="form" method="POST" action="/users/login">
                         <fieldset>
                             <div class="form-group">

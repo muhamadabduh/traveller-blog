@@ -5,6 +5,7 @@ const AdminController = require('../../controllers/AdminController')
 
 
 router.get('/', (req, res, next) => {
+    // console.log()
     if (req.session.user) {
         next()
     } else {

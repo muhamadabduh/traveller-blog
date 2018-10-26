@@ -22,8 +22,8 @@ class UserController {
     }
 
     static login(req, res) {
-        const message = req.query.message || null
-        res.render('users/login', message)
+        const message = req.query.message || ''
+        res.render('users/login', { message })
     }
 
     static toLogin(req, res) {
