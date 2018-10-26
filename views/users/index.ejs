@@ -26,8 +26,11 @@
             </h3>
           </a>
           <p class="post-meta">Posted by
-            <a href="/users/<%post.UserId%>">Riani Djangkaru</a>
-            on September 24, 2018</p>
+            <a href="/users/<%post.UserId%>">
+              Riyani Djangkaru</a>
+            on
+            <%=getDate(post.createdAt)%>
+          </p>
         </div>
         <%})%>
         <hr>
