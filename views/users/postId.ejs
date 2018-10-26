@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%-include('partials/head') %>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <%-include('partials/navbar') %>
+  <%-include('partials/header') %>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+          <section id="portfolio" class="section-padding wow fadeInUp delay-05s">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h2 class="title text-center"><a href="">Let's <span class="deco">See</span> Our Destinations</a></h2>
+                  </div>
+                  <div class="col-md-12">
+                    <div id="myGrid" class="grid-padding">
+                      <div class="col-md-4 col-sm-4 padding-right-zero">
+                        
+                          <img class="card-img-top" src="" alt=" ">
+                        <h4>Bali</h4>
+                        <p>Part of our Journey to do vacation</p> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+        <hr>
+        <!-- Pager -->
+        <div class="clearfix">
+          <form action="/posts/" method="POST"> 
+            <a class="btn btn-primary float-right" ><button type="submit" >Delete &rarr;</a></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <hr>
+
+  <!-- Footer -->
+  <%-include('partials/footer')%>
+
+  <%-include('partials/script')%>
+
+
+
+</body>
+
+</html>
