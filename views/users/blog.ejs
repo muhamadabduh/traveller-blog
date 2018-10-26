@@ -2,131 +2,151 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Travel Blog Mate</title>
-  <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
-  <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
-
-  <link rel="stylesheet" type="text/css" href="/https://fonts.googleapis.com/css?family=Fira+Sans|Roboto:300,400|Questrial|Satisfy">
-  <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/animate.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-
-  <!-- =======================================================
-    Theme Name: Laura
-    Theme URL: https://bootstrapmade.com/laura-free-creative-bootstrap-theme/
-    Author: BootstrapMade.com
-    Author URL: https://bootstrapmade.com
-  ======================================================= -->
+  <%-include('partials/head') %>
 </head>
 
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" onload="myFunction()">
-  <div class="header">
-    <div class="bg-color">
-      <%- include('./partials/bodyHeader') %>
-      <div class="wrapper">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 wow fadeIn delay-05s">
-              <div class="banner-text">
-                <h2>Hi, Welcome to <span>TravelMate</span> Web,</h2>
-                <p>We serve your Wanderlust <br>& Passion</p>
-              </div>
-              <div class="overlay-detail text-center">
-                <a href="#about"><i class="fa fa-angle-down"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
+<body>
+
+  <!-- Navigation -->
+  <%-include('partials/navbar') %>
+  <%-include('partials/header') %>
       </div>
+      <div class="modal-footer">
+          <small>New to Refers ?<a href="#">Register here</a></small>
+      </div>
+      
     </div>
   </div>
-  <section id="portfolio" class="section-padding wow fadeInUp delay-05s">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="title text-center"><a href="">Let's <span class="deco">See</span> Our Destinations</a></h2>
+</div>
+<div class="mt-5"></div>
+<section class="aboutus py-5" id="aboutus">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="">
+                        <h4 class="pl-3 py-2">Categories</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="listings-page.html" class="list-group-item"><i class="fa fa-angle-double-right"></i> Listings Page</a> </li>
+                            <li><a href="/posts/create" class="list-group-item"><i class="fa fa-angle-double-right"></i> Post a blog</a> </li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="card pb-5">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5>Free Responsive Mobile Website Templates (3147)</h5>
+                                <div class="pb-1"></div>
+                            </div>
+                        </div>
+                        <% posts.forEach(post => { %>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="/posts/<%= post.id %>">
+                                <div class="card text-center">
+                                    <img class="card-img-top" src="/posts/<%= post.image %>" alt=" ">
+                                    <div class="card-body">
+                                         <h5>Catchy</h5> 
+                                    </div>
+                                </div></a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="/posts/<%= post.id %>">
+                                <div class="card text-center">
+                                    <img class="card-img-top" src="<%= post.image %>" alt=" ">
+                                    <div class="card-body">
+                                         <h5>School</h5> 
+                                    </div>
+                                </div></a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="/posts/<%= post.id %>">
+                                <div class="card text-center">
+                                    <img class="card-img-top" src="<%= post.image %>" alt=" ">
+                                    <div class="card-body">
+                                         <h5>Catchy</h5> 
+                                    </div>
+                                </div></a>
+                            </div>
+                        </div>
+                        <% }) %>
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                 <ul class="pagination">
+                                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                </ul> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
-        <div class="col-md-12">
-          <div id="myGrid" class="grid-padding">
-            <% posts.forEach(post => { %>
-            <div class="col-md-4 col-sm-4 padding-right-zero">
-              <a href="/blog/<%= post.id %>"><img src="img/portfolio01.jpg" class="img-responsive"></a> 
-              <a href="/blog/<%= post.id + 1 %>"><img src="img/port01.jpg" class="img-responsive"></a>
-              <a href="/blog/<%= post.id + 2%>"><img src="img/port02.jpg" class="img-responsive"></a>
-              <a href="/blog/<%= post.id + 3%>"><img src="img/portfolio01.jpg" class="img-responsive"></a>
-            </div>
-            <div class="col-md-4 col-sm-4 padding-right-zero">
-              <img src="img/portfolio02.jpg" class="img-responsive">
-              <img src="img/port01.jpg" class="img-responsive">
-              <img src="img/port02.jpg" class="img-responsive">
-              <img src="img/portfolio01.jpg" class="img-responsive">
-              <img src="img/port03.jpg" class="img-responsive">
-            </div>
-            <div class="col-md-4 col-sm-4 padding-right-zero">
-              <img src="img/port01.jpg" class="img-responsive">
-              <img src="img/portfolio01.jpg" class="img-responsive">
-              <img src="img/portfolio02.jpg" class="img-responsive">
-              <img src="img/port03.jpg" class="img-responsive">
-              <img src="img/portfolio02.jpg" class="img-responsive">
-              <img src="img/port02.jpg" class="img-responsive">
-            </div>
-            <% }) %>
-          </div>
-        </div>
-      </div>
+
     </div>
-  </section>
-  <footer class="footer-2 text-center-xs bg--white">
+</section>
+
+<section class="footer bg-light   py-5" id="footer">
     <div class="container">
-      <!--end row-->
-      <div class="row">
-        <div class="col-md-6">
-          <div class="footer">
-            © Copyright Laura Theme. All Rights Reserved
-            <div class="credits">
-              <!--
-                All the links in the footer should remain intact. 
-                You can delete the links only if you purchased the pro version.
-                Licensing information: https://bootstrapmade.com/license/
-                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Laura
-              -->
-              Designed by <a href="https://bootstrapmade.com/">BootstrapMade.com</a>
+        <div class="row">
+            <div class="col-md-3">
+                <h5>About Sarto</h5>
+                <p>Person usually begins a job by becoming an employee, volunteering, or starting a business. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusant doloremque laudantium, totam rem aperiam eaque ipsa quae.</p>
             </div>
-          </div>
-        </div>
-        <div class="col-md-6 text-right">
-          <ul class="social-list">
-            <li>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-dribbble"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-vimeo"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-instagram"></i></a>
-            </li>
-          </ul>
+            <div class="col-md-3">
+                <h5>About Sarto</h5>
+                <ul class="list-inline list-unstyled">
+                    <li><a href="#"> Administrator</a></li>
+                    <li><a href="#"> Account</a></li>
+                    <li><a href="#"> Finance</a></li>
+                    <li><a href="#"> Developer</a></li>
+                    <li><a href="#"> Project Manager</a></li>
+                    <li><a href="#"> Art Director</a></li>
+                    <li><a href="#"> Animator</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>About Sarto</h5>
+                <ul class="list-inline list-unstyled">
+                    <li><a href="#"> Administrator</a></li>
+                    <li><a href="#"> Account</a></li>
+                    <li><a href="#"> Finance</a></li>
+                    <li><a href="#"> Developer</a></li>
+                    <li><a href="#"> Project Manager</a></li>
+                    <li><a href="#"> Art Director</a></li>
+                    <li><a href="#"> Animator</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>About Sarto</h5>
+                <ul class="list-inline list-unstyled">
+                    <li><a href="#"> Administrator</a></li>
+                    <li><a href="#"> Account</a></li>
+                    <li><a href="#"> Finance</a></li>
+                    <li><a href="#"> Developer</a></li>
+                    <li><a href="#"> Project Manager</a></li>
+                    <li><a href="#"> Art Director</a></li>
+                    <li><a href="#"> Animator</a></li>
+                </ul>
+            </div>
+            
         </div>
 
-      </div>
-      <!--end row-->
     </div>
-  </footer>
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery.easing.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.bxslider.min.js"></script>
-  <script src="js/wow.js"></script>
-  <script src="js/custom.js"></script>
-  <script src="contactform/contactform.js"></script>
-
-</body>
-
-</html>
+</section>
+<section class="copyright border bg-dark text-white py-2" id="copyright">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <small>Sarto © 2018, All Rights Reserved, Design & Developed By: </small>
+            </div>
+        </div>
+    </div>
+</section>

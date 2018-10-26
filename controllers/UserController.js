@@ -1,10 +1,21 @@
 const express = require('express')
 const models = require('../models/index')
 const User = models.User
+const Post = models.Post
 const bcrypt = require('bcryptjs')
 const session = require('express-session')
 
 class UserController {
+
+    static index(req, res) {
+        Post.findAll()
+            .then(posts => {
+                res.render('users/index', { posts })
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }
 
     static register(req, res) {
         res.render('users/register', { title: 'Register', content: 'register' })
@@ -37,6 +48,7 @@ class UserController {
             if (bcrypt.compareSync(req.body.password, user.password) === true) {
                 let message = `Welcome ${user.name}`
                 req.session.user = user
+                console.log(req.session.user)
                 res.redirect(`/?message=${message}`)
             } else {
                 console.log(`masuk 2`)
@@ -51,23 +63,8 @@ class UserController {
         })
     }
 
-    static showBlog(req,res) {
-        // console.log('masuk')
-        models.Post.findAll()
-        .then((posts) => {
-            // res.send({posts})
-            res.render('users/blog', {posts})
-        })
-        .catch(err => {res.send(err)})
-    }
-
-    static blogId(req,res) {
-        models.Post.findOne({where: {id: req.params.id}},{include: [models.User], order: [['id', 'ASC']]})
-        .then((posts) => {
-            // res.send(posts)
-            res.render('users/blogId', {posts})
-        })
-        .catch(err => {res.send(err)})
+    static create(req,res) {
+        
     }
 }
 

@@ -18,6 +18,7 @@ class AdminController {
                 res.send(err)
             })
     }
+
 }
 
 
