@@ -6,7 +6,7 @@ const Tag = models.Tag
 
 class AdminController {
     static index(req, res) {
-        res.render('admin/admin', { title: 'Admin Page' })
+        res.redirect(`/admin/posts`)
     }
 
     static showPosts(req, res) {

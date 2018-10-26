@@ -7,5 +7,6 @@ postRouter.get('/', PostController.index)
 postRouter.get('/create', PostController.create) //middleware
 postRouter.get('/:id', PostController.show)
 postRouter.post('/create', PostController.store)
+postRouter.post('/delete/:id', PostController.destroy)
 
 module.exports = postRouter

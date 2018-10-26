@@ -7,7 +7,8 @@ class PostController {
     static index(req, res) {
         Post.findAll({order: [['id', 'ASC']]})
             .then(posts => {
-                res.render('users/index', { posts })
+                // console.log(req.session.user, '===========')
+                res.render('users/index', { posts: posts, user: req.session.user })
             })
             .catch(err => {
                 res.send(err)
@@ -43,7 +44,7 @@ class PostController {
             }
         })
             .then(post => {
-                res.render('post/show')
+                res.render('post/show', { post: post, title: post.title })
             })
             .catch(err => {
                 res.send(err)
@@ -51,10 +52,13 @@ class PostController {
     }
 
     static store(req, res) {
-        let newPost = req.body
-        let tags = req.body.tags.split(',')
-        // newPost.UserId = res.session.user.id
-        Post.create(newPost)
+        // console.log(req.session.user.id)
+        Post.create({
+            title: req.body.title,
+            image: req.body.image,
+            review: req.body.review,
+            UserId: req.session.user.dataValues
+        })
             .then(data => {
                 let message = `succesfully add new Post!`
                 res.redirect(`/posts?message=${message}`)
@@ -63,7 +67,6 @@ class PostController {
                 res.send(err)
             })
     }
-
 
     static showBlog(req,res) {
         // console.log('masuk')
@@ -75,14 +78,21 @@ class PostController {
         .catch(err => {res.send(err)})
     }
 
-    static destroy(req,res) {
-        Post.destroy({where: {id:req.params.id}})
-        .then(() => {
-            res.redirect('users/blog')
+    static destroy(req, res) {
+        Post.destroy({
+            where: {
+                id: req.params.id
+            }
         })
-        .catch(err => {res.send(err)})
+            .then(data => {
+                let message = `Succesfully deleted`
+                console.log(message)
+                res.redirect(`admin/posts/?message=${message}`)
+            })
+            .catch(err => {
+                res.send(err)
+            })
     }
-
 }
 
 module.exports = PostController
